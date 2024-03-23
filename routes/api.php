@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(IndexController::class)->group(function () {
-    Route::post('', 'index')->name('.index');
+    Route::match([ 'GET', 'POST' ],'', 'index')->name('.index');
 });

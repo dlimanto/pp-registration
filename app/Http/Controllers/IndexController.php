@@ -10,6 +10,8 @@ use Revolution\Google\Sheets\Facades\Sheets;
 class IndexController extends Controller {
 
     public function index(Request $request): JsonResponse{
+        if ($request->method() === 'GET') return response()->json([ 'message' => 'Hayo mau ngapain.... ԅ(≖⌣≖ԅ)' ], 400);
+
         $data        = null;
         $source      = Sheets::spreadsheet(config('google.post_spreadsheet_id'))->sheet('Form Responses 1')->range('B2:B')->all();
         $destination = Sheets::spreadsheet(config('google.post_spreadsheet_id'))->sheet('Registration')->range('A2:B')->all();
